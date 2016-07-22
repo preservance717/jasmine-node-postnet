@@ -7,6 +7,18 @@ describe('postnet', ()=> {
     let input;
     const allTags = loadAllTags();
 
+    it('print codeText', () => {
+        input = '56147-1268';
+
+        spyOn(console, 'log');
+
+        main.print(input);
+
+        const expectOutput = `56147-1268 == |:|:|::||:::::||:|::||:::|:::||::|:|:||::|::|:||:::|`;
+
+        expect(console.log).toHaveBeenCalledWith(expectOutput);
+    });
+
     it('invalid input', ()=> {
         input = 'AAA';
         const validNums = main.getValidNums(input);
@@ -34,19 +46,19 @@ describe('postnet', ()=> {
     it('get checkcode', () => {
         input = '56147-1268';
 
-        const checkCode = main.getCheckCode(input,allTags);
+        const checkCode = main.getCheckCode(input, allTags);
         const expectCheckCode = '||:::';
 
         expect(checkCode).toEqual(expectCheckCode);
     });
-    
-    it('build code text', ()=> {//56147-1268
+
+    it('build code text', ()=> {
         const postCodes = [':|:|:', ':||::', ':::||', ':|::|', '|:::|', ':::||', '::|:|', ':||::', '|::|:'];
         const checkCode = '||:::';
-        
-        const code = main.buildCodeText(postCodes, checkCode);
+
+        const code = main.buildCode(postCodes, checkCode);
         const expectCode = '|:|:|::||:::::||:|::||:::|:::||::|:|:||::|::|:||:::|';
-        
+
         expect(code).toEqual(expectCode);
     })
 });

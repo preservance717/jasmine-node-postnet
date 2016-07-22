@@ -1,5 +1,19 @@
 'use strict';
 
+const fixtures = require('../spec/fixtures');
+
+function print(input) {
+    const validInput = getValidNums(input);
+
+    const allTags = fixtures();
+    const postCodes = buildPostCodes(validInput, allTags);
+    const checkCode = getCheckCode(validInput, allTags);
+    const code = buildCode(postCodes, checkCode);
+    const codeText = buildCodeText(validInput, code);
+
+    console.log(codeText);
+}
+
 function getValidNums(input) {
     const nums = input.split('-');
     const digits = nums[1] ? (nums[0].concat(nums[1])).split('') : nums[0].split('');
@@ -33,13 +47,18 @@ function getCheckCode(input, allTags) {
     return allTags[checkDigit];
 }
 
-function buildCodeText(postCodes, checkCode) {
+function buildCode(postCodes, checkCode) {
     return `|${postCodes.concat(checkCode).reduce((pre, next)=> pre + next)}|`;
+}
+
+function buildCodeText(input, code) {
+    return `${input} == ${code}`;
 }
 
 module.exports = {
     getValidNums: getValidNums,
     buildPostCodes: buildPostCodes,
     getCheckCode: getCheckCode,
-    buildCodeText: buildCodeText
+    buildCode: buildCode,
+    print: print
 };
