@@ -7,6 +7,14 @@ describe('postnet', ()=> {
     let input;
     const allTags = loadAllTags();
 
+    it('invalid input', ()=> {
+        input = 'AAA';
+        const validNums = main.getValidNums(input);
+        const expectValidNums = 'invalid input';
+
+        expect(validNums).toEqual(expectValidNums);
+    });
+
     it('input have 5 bit', ()=> {
         input = '56147';
         const postCodes = main.buildPostCodes(input, allTags);
@@ -18,17 +26,19 @@ describe('postnet', ()=> {
     it('input have 10 bit', ()=> {
         input = '56147-1268';
         const postCodes = main.buildPostCodes(input, allTags);
-        const expectPostCodes = [':|:|:',':||::', ':::||', ':|::|','|:::|',':::||','::|:|',':||::','|::|:'];
+        const expectPostCodes = [':|:|:', ':||::', ':::||', ':|::|', '|:::|', ':::||', '::|:|', ':||::', '|::|:'];
 
         expect(postCodes).toEqual(expectPostCodes);
     })
-    it('invalid input', ()=>{
-         input = 'AAA';
-        const postCodes = main.buildPostCodes(input, allTags);
-        const expectPostCodes = undefined;
 
-        expect(postCodes).toEqual(expectPostCodes);
-    });
+    it('get checkcode', () => {
+        input = '56147-1268';
+
+        const checkCode = main.getCheckCode(input,allTags);
+        const expectCheckCode = '||:::';
+
+        expect(checkCode).toEqual(expectCheckCode);
+    })
 });
 
 
