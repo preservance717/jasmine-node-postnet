@@ -29,7 +29,7 @@ describe('postnet', ()=> {
         const expectPostCodes = [':|:|:', ':||::', ':::||', ':|::|', '|:::|', ':::||', '::|:|', ':||::', '|::|:'];
 
         expect(postCodes).toEqual(expectPostCodes);
-    })
+    });
 
     it('get checkcode', () => {
         input = '56147-1268';
@@ -38,6 +38,16 @@ describe('postnet', ()=> {
         const expectCheckCode = '||:::';
 
         expect(checkCode).toEqual(expectCheckCode);
+    });
+    
+    it('build code text', ()=> {//56147-1268
+        const postCodes = [':|:|:', ':||::', ':::||', ':|::|', '|:::|', ':::||', '::|:|', ':||::', '|::|:'];
+        const checkCode = '||:::';
+        
+        const code = main.buildCodeText(postCodes, checkCode);
+        const expectCode = '|:|:|::||:::::||:|::||:::|:::||::|:|:||::|::|:||:::|';
+        
+        expect(code).toEqual(expectCode);
     })
 });
 
