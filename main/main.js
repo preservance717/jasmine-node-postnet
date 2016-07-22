@@ -3,13 +3,13 @@
 const fixtures = require('../spec/fixtures');
 
 function print(input) {
-    const validInput = getValidNums(input);
+    getValidNums(input);
 
     const allTags = fixtures();
-    const postCodes = buildPostCodes(validInput, allTags);
-    const checkCode = getCheckCode(validInput, allTags);
+    const postCodes = buildPostCodes(input, allTags);
+    const checkCode = getCheckCode(input, allTags);
     const code = buildCode(postCodes, checkCode);
-    const codeText = buildCodeText(validInput, code);
+    const codeText = buildCodeText(input, code);
 
     console.log(codeText);
 }
