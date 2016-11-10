@@ -5,6 +5,8 @@ https://www.cs.drexel.edu/~introcs/Fa12/assignments/HW4/index.html
 
 http://www.jiskha.com
 
+http://www.jiskha.com
+
 为了快速对信件进行分类，美国联邦邮政局鼓励信件量大的公司用「条码」来代替邮编。 ###这种「条码」只有一行，有两种高度。下图展示的是数字 0 - 9 对应的条码。竖线表示长行，冒号表示短行。
 ```
 1 :::||
@@ -84,6 +86,7 @@ https://www.cs.drexel.edu/~introcs/Fa12/assignments/HW4/index.html
 http://www.jiskha.com
 
 For faster sorting of letters, The United States Postal Service encourages companies that send ###large volumes of mail to use a barcode denoting the ZIP code. This type of barcode uses single lined bars of two different ###heights. In the following chart each number from 0 to 9 is denoted by it’s barcode equivalent. The vertical lines ###represent the long lines while the colons represent the short lines.
+http://www.jiskha.com/ For faster sorting of letters, The United States Postal Service encourages companies that send ###large volumes of mail to use a barcode denoting the ZIP code. This type of barcode uses single lined bars of two different ###heights. In the following chart each number from 0 to 9 is denoted by it’s barcode equivalent. The vertical lines ###represent the long lines while the colons represent the short lines.
 
 1 :::|| 2 ::|:| 3 ::||: 4 :|::| 5 :|:|: 6 :||:: 7 |:::| 8 |::|: 9 |:|:: 0 ||:::
 
